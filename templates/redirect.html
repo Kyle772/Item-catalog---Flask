@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block Section %}
+<h1>Redirecting</h1>
+{% if page %}
+<p>Redirecting to {{ page }}</p>
+{% else %}
+<p>Redirecting</p>
+{% endif %}
+{% endblock %}

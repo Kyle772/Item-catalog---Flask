@@ -1,0 +1,75 @@
+#Content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 70vw;
+    max-width: 450px;
+    min-width: 250px;
+    height: 66vh;
+    max-height: 800px;
+    min-height: 450px;
+    margin: auto;
+    overflow-y: scroll;
+}
+
+header, nav, section {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header {
+    justify-content: center;
+    font-weight: 700;
+    font-size: 21pt;
+}
+
+nav {
+    justify-content: space-between;
+}
+
+nav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    flex-grow: 1;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    background-color: rgba(251, 123, 35, .6);
+}
+
+nav a:hover {
+    background-color: rgba(251, 123, 35, 1);
+}
+
+section {
+    padding: 15px;
+}
+
+.flex {
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.mar {
+    margin-right: auto;
+}
+
+.mal {
+    margin-left: auto;
+}
+
+.col-1 {
+    width: 100%;
+}
+
+.col-2 {
+    width: 50%;
+}

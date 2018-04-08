@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Item Catalog</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    </head>
+    <body>
+        <div id="Content">
+            <header>
+                <p>127.0.0.1</p>
+            </header>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/items">Items</a>
+                {% if user %}
+                <a href="/logout">Logout</a>
+                {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+                {% endif %}
+            </nav>
+            <section class="flex col">
+                {% block Section %}
+                {% endblock %}
+            </section>
+        </div>
+    </body>
+</html>
