@@ -1,6 +1,6 @@
-from flask import render_template
 from . import routes
+from .render import Render
 
 @routes.route('/404')
 def page_not_found():
-    return render_template('404.html')
+    return Render.html('404.html')

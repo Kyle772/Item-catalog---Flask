@@ -18,29 +18,35 @@ app.register_blueprint(routes)
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = \
     jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir), autoescape=True)
-        
+
 class Db():
-    def open(dbname="flask", *args, **kwargs):
-        if not hasattr(g, 'sqlite_db'):
-            g.sqlite_db = psql.connect("dbname=" + dbname)
-        return g.sqlite_db
-    
+    @staticmethod
+    def open(dbname="item_catalog", *args, **kwargs):
+        if not hasattr(g, '_database'):
+            try:
+                g.sqlite_db = connection = psql.connect("dbname=" + dbname)
+                print("Current DB connection: {}".format(connection))
+                return connection
+            except:
+                print("DB {} doesn't exist...".format(dbname))
+
+    @staticmethod
     def close():
-        if hasattr(g, 'sqlite_db'):
+        if hasattr(g, '_database'):
             g.sqlite_db.close()
-        
+
 @app.before_request
 def before_request():
     g = Db.open()
 
 @app.teardown_appcontext
-def teardown_request(exception):
+def teardown_appcontext(exception):
     g = Db.close()
-        
+
 def main():
     from paste import httpserver
     httpserver.serve(app, host='0.0.0.0', port='8080')
     os.system('attrib +H *.pyc /S')
-    
+
 if __name__ == '__main__':
     main()

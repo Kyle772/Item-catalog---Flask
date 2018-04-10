@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <title>Item Catalog</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
-        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
     </head>
     <body>
         <div id="Content">
@@ -22,9 +21,19 @@
                 {% endif %}
             </nav>
             <section class="flex col">
+                {% if user %}
+                <p>Welcome back {{ user.username }}</p>
+                {% endif %}
                 {% block Section %}
                 {% endblock %}
             </section>
         </div>
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.js"
+        integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+        crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+        {% block Foot %}
+        {% endblock %}
     </body>
 </html>

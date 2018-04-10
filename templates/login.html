@@ -2,13 +2,16 @@
 {% block Section %}
 <form class="flex col mar mal" method="post">
     <h1>Login</h1>
+    {% if message %}
+    <p class="error">{{ message }}</p>
+    {% endif %}
     <label class="flex col">
         <p>Username:</p>
-        <input type="text">
+        <input name="user" type="text">
     </label>
     <label class="flex col">
         <p>Password:</p>
-        <input type="password">
+        <input name="pass" type="password">
     </label>
     <a class="mal button"><input type="submit"></a>
 </form>

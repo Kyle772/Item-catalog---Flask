@@ -2,6 +2,9 @@
 {% block Section %}
 <form class="flex col mar mal" method="post">
     <h1>Register</h1>
+    {% if message %}
+    <p class="error">{{ message }}</p>
+    {% endif %}
     <label class="flex col">
         <p>Username:</p>
         <input name="user" type="text">

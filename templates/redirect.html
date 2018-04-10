@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block Section %}
 <h1>Redirecting</h1>
 {% if page %}
@@ -6,4 +7,12 @@
 {% else %}
 <p>Redirecting</p>
 {% endif %}
+{% endblock %}
+
+{% block Foot %}
+<script>
+setTimeout(function () {
+   window.location.href = "{{ page }}"; //will redirect to your blog page (an ex: blog.html)
+}, 5000); //will call the function after 2 secs.
+</script>
 {% endblock %}

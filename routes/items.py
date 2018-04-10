@@ -1,6 +1,6 @@
-from flask import render_template
 from . import routes
+from .render import Render
 
 @routes.route('/items')
 def items():
-    return render_template('items.html')
+    return Render.html('items.html')
