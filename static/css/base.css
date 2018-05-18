@@ -1,27 +1,33 @@
 body {
     background-color: #1f1f2b;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #Content {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 70vw;
-    max-width: 450px;
-    min-width: 250px;
-    height: 66vh;
-    max-height: 800px;
-    min-height: 450px;
+    z-index: 100;
     margin: auto;
     overflow-y: scroll;
     background-color: white;
-    padding: 5px;
-    border-radius: 10px;
-    border: solid black 5px;
+    width: 300px;
+    height: 531px;
+}
+
+.phone {
+    z-index: -1;
+    position: absolute;
 }
 
 header, nav, section {
     display: flex;
+    flex-shrink: 0;
     width: 100%;
     box-sizing: border-box;
 }
@@ -41,6 +47,7 @@ nav a {
     text-decoration: none;
     flex-grow: 1;
     font-weight: 700;
+    font-size: .8em;
     color: white;
     text-align: center;
     background-color: rgba(251, 123, 35, .6);
@@ -52,6 +59,40 @@ nav a:hover {
 
 section {
     padding: 15px;
+}
+
+input {
+    background-color: rgb(244, 244, 244);
+    border: none;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 15px;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+    border-bottom: rgb(124, 81, 46) solid 2px;
+}
+
+input:hover {
+    border: none;
+    outline: none;
+    border-bottom: rgb(84, 54, 29) solid 2px;
+}
+
+input.button {
+    border-bottom: none;
+    color: white;
+    font-weight: 700;
+    padding-bottom: 9px;
+    padding-top: 11px;
+    margin-top: 15px;
+    background-color: rgba(251, 123, 35, .6);
+}
+input.button:hover {
+    border-bottom: none;
+    background-color: rgba(251, 123, 35, 1);
 }
 
 .flex {
@@ -74,6 +115,10 @@ section {
     margin-left: auto;
 }
 
+.mb0 {
+    margin-bottom: 0;
+}
+
 .col-1 {
     width: 100%;
 }
@@ -90,4 +135,11 @@ p.error {
     font-weight: 700;
     padding: 10px 15px;
     text-align: center;
+}
+
+.button {
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    background-color:
 }

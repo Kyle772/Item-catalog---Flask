@@ -1,7 +1,24 @@
 {% extends "base.html" %}
+
+{% block Head %}
+<script>
+function init() {
+    gapi.load('auth2', function() {
+        var auth2 = gapi.auth2.init({});
+        auth2.then(function () {
+            if (auth2.isSignedIn.get()) {
+                var googleUser=auth2.currentUser.get();
+                userFlow.onSignIn(googleUser);
+            }
+        });
+    });
+}
+</script>
+{% endblock %}
+
 {% block Section %}
 <form class="flex col mar mal" method="post">
-    <h1>Login</h1>
+    <h1 class="mb0">Login</h1>
     {% if message %}
     <p class="error">{{ message }}</p>
     {% endif %}
@@ -13,6 +30,11 @@
         <p>Password:</p>
         <input name="pass" type="password">
     </label>
-    <a class="mal button"><input type="submit"></a>
+    <a class="mal"><input class="button" type="submit"></a>
+    <p>- or -</p>
+    <div id="GoogleSignIn" class="g-signin2 button col-1" data-onsuccess="init"></div>
 </form>
+{% endblock %}
+
+{% block Foot %}
 {% endblock %}

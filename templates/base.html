@@ -2,10 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="google-signin-client_id" content="844750598900-4grsbbb1nnr3r50p5600h4601k0hnkm8.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
         <title>Item Catalog</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+        {% block Head %}
+        {% endblock %}
     </head>
     <body>
+        <div class="phone">
+            <img src="{{ url_for('static', filename='images/iphone.svg') }}">
+        </div>
         <div id="Content">
             <header>
                 <p>127.0.0.1</p>
@@ -14,7 +21,7 @@
                 <a href="/">Home</a>
                 <a href="/items">Items</a>
                 {% if user %}
-                <a href="/logout">Logout</a>
+                <a data-button="signOut" href="#">Logout</a>
                 {% else %}
                 <a href="/login">Login</a>
                 <a href="/register">Register</a>
@@ -29,10 +36,10 @@
             </section>
         </div>
         <script
-        src="https://code.jquery.com/jquery-3.3.1.slim.js"
-        integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/base.js') }}" async></script>
         {% block Foot %}
         {% endblock %}
     </body>

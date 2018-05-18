@@ -14,8 +14,9 @@ def create_tables():
         CREATE TABLE users (
             user_id SERIAL PRIMARY KEY,
             username VARCHAR(16) NOT NULL,
-            password_hash VARCHAR NOT NULL,
-            user_type INTEGER NOT NULL
+            user_type INTEGER NOT NULL,
+            password_hash VARCHAR,
+            token VARCHAR
         );
         """,
         """

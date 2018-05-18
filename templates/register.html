@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% block Section %}
 <form class="flex col mar mal" method="post">
-    <h1>Register</h1>
+    <h1 class="mb0">Register</h1>
     {% if message %}
     <p class="error">{{ message }}</p>
     {% endif %}
     <label class="flex col">
-        <p>Username:</p>
+        <p class="mb0">Username:</p>
         <input name="user" type="text">
     </label>
     <label class="flex col">
-        <p>Password:</p>
+        <p class="mb0">Password:</p>
         <input name="pass" type="password">
     </label>
     <label class="flex col">
-        <p>Verify Password:</p>
+        <p class="mb0">Verify Password:</p>
         <input name="vpass" type="password">
     </label>
-    <a class="mal button"><input type="submit"></a>
+    <a class="mal"><input class="button" type="submit"></a>
 </form>
 {% endblock %}

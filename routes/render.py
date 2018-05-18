@@ -1,6 +1,13 @@
 from flask import make_response, render_template, request, g
 from . import routes
 
+def debug(info, type="INFO", forceBreak=False):
+    if forceBreak:
+        raise ValueError('Something is wrong! {}'.format(info))
+    else:
+        stmt = "[{}]: {}".format(type, info)
+        print("\n\n{}\n\n".format(stmt))
+
 class Handler():
     @staticmethod
     def current_user_id():
@@ -17,8 +24,12 @@ class Handler():
                 WHERE user_id={};
             """.format(user_id)
             )
-            user = cur.fetchone()[0][0]
-            return user
+            user = cur.fetchone()
+
+            if user:
+                return user[0][0]
+            else:
+                return None
         else:
             return False
 
